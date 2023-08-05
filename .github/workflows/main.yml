@@ -1,4 +1,4 @@
-name: check and build
+name: build mi pad 4
 
 on:
   workflow_dispatch:
@@ -7,15 +7,11 @@ on:
         description: "Pseudo Make"
         type: boolean
         default: false
-
-  schedule:
-    - cron: "50 9,21 * * *"
-
 env:
-  kernel_repository: PixelExperience-Devices/kernel_xiaomi_polaris
+  kernel_repository: PixelExperience-Devices/kernel_xiaomi_clover
   kernel_branch: thirteen
-  device: dipper
-  defconfig: dipper_defconfig
+  device: clover
+  defconfig: clover_defconfig
   use_aosp_clang: false
   clang_version: 15
 

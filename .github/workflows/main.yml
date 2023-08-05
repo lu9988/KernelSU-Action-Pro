@@ -138,7 +138,8 @@ jobs:
           echo 123 > out/arch/arm64/boot/Image
           echo 123 > out/arch/arm64/boot/Image.gz
           echo 123 > out/arch/arm64/boot/Image.gz-dtb
-          ls -a out/arch/arm64/boot/
+          result=$(ls -a)
+          echo $result
       - name: anykernel
         run: |
           curl -Lo AnyKernel3.zip https://github.com/osm0sis/AnyKernel3/archive/refs/heads/master.zip

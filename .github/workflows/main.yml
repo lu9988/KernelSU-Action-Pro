@@ -8,8 +8,8 @@ on:
         type: boolean
         default: false
 env:
-  kernel_repository: PixelExperience-Devices/kernel_xiaomi_clover
-  kernel_branch: thirteen
+  kernel_repository: pix106/android_kernel_xiaomi_southwest-4.19
+  kernel_branch: main
   device: clover
   defconfig: clover_defconfig
   use_aosp_clang: false
@@ -42,8 +42,6 @@ jobs:
       local_release: ${{ steps.check_kernelsu_release.outputs.local_release }}
 
   build:
-    needs: check_kernelsu_update
-    if: needs.check_kernelsu_update.outputs.kernelsu_release != needs.check_kernelsu_update.outputs.local_release
     runs-on: ubuntu-latest
     permissions:
       contents: write

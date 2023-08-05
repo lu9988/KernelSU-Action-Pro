@@ -135,11 +135,12 @@ jobs:
         if: ${{ inputs.pseudo_make }}
         run: |
           mkdir -p out/arch/arm64/boot/
-          echo 123 > out/arch/arm64/boot/bootimg.cfg
           echo 123 > out/arch/arm64/boot/Image
           echo 123 > out/arch/arm64/boot/Image.gz
           echo 123 > out/arch/arm64/boot/Image.gz-dtb
-
+      - name: look pwd
+        run: |
+          ls -a
       - name: anykernel
         run: |
           curl -Lo AnyKernel3.zip https://github.com/osm0sis/AnyKernel3/archive/refs/heads/master.zip
@@ -177,5 +178,4 @@ jobs:
             https://github.com/tiann/KernelSU/releases/tag/${{ needs.check_kernelsu_update.outputs.kernelsu_release }}
           files: |
             out/arch/arm64/boot/Image*
-            out/arch/arm64/boot/bootimg.cfg
             AnyKernel3-master/boot.zip
